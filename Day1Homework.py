@@ -1,4 +1,13 @@
 def mypow(num) -> int:
+    """
+    num의 루트값보다 크거나 같은 가장 작은 정수 반환하는 함수
+    num = 9이면 3 리턴
+    num = 10 이면 4 리턴
+    sqrt(num) 보다 큰 수를 계산 범위에 넣어도 결과에는 변함이 없으므로
+    코드가 가장 짧게 작성되는 방식으로 하였음(반복횟수 1회 차이)
+    :param num: int
+    :return: int
+    """
     for i in range(1, num):
         if i * i >= num:
             return i
