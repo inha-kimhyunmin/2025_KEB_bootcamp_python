@@ -16,6 +16,7 @@ for i in range(1, num, 1):
         print(f"{i} ", end=' ')
         count = count + 1
         if count == 10:
+
             count = 0
             print()
 
