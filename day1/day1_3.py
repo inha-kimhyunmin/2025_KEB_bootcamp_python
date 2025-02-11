@@ -9,3 +9,5 @@ print(type(money))  # tuple
 cash = 5_000_000
 print(cash)
 print(type(cash))  # int
+
+#alsdlawka
