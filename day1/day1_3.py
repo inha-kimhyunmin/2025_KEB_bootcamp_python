@@ -1,14 +1,22 @@
-subjects = ["python", "c++", "database"]
-subjects_string = " / ".join(subjects) #join 쓰면 각 원소 사이에 앞에 쓴 문자열 넣어줌
-print(subjects_string)
+course = "* KEB 2024# KEB !Bootcamp KEB...*!#"
+print(course.find('KEB')) #KEB 문자열의 시작위치
+print(course.rfind('KEB')) #reverse find?
+print(course.index('KEB'))
+print(course.rindex('KEB'))
+print(course.find('Inha'))  # -1 없으면 -1인가봄
+# print(course.index('Inha'))  # ValueError: substring not found 없으면 에러 발생
 
-# numbers = input("FirstNumber SecondNumber : ").split() #입력 받은 것을 스페이스를 기준으로 나눠서 리스트에 넣어줌
-numbers = input("FirstNumber$SecondNumber : ").split('$') #입력 구분이 $
-#print(numbers[0] + numbers[1])  # concatenation
-print(int(numbers[0]) + int(numbers[1]) + int(numbers[2]) + int(numbers[3]))  # arithmetic operation
+print(course)
+course = course.replace('KEB', 'Inha', 2)
+print(course)
+print(course.strip()) # 문자열 앞뒤 공란 제거
+print(course.strip("!#.*")) #문자열 안에 문자들이 시작, 끝에 있으면 제거
+print(course.lstrip("!#.*")) #왼쪽만
+print(course.rstrip("!#.*")) #오른쪽만
 
-# course = "2024 KEB Bootcamp"
+
 # print(course)
-# #list_course = course.split()
-# list_course = course.split('B')
-# print(list_course)
+# print(course.replace('KEB', 'Inha'))
+# print(course)
+# course = course.replace('KEB', 'Inha')
+# print(course)
