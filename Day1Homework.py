@@ -1,7 +1,13 @@
+def mypow(num) -> int:
+    for i in range(1, num):
+        if i * i >= num:
+            return i
+    return 0
+
 def is_prime(num) -> bool:
     if num >= 2:
         i = 2
-        while i <= int(pow(num, 0.5)):
+        while i <= mypow(num):
             if num % i == 0:
                 return False
             i = i + 1
@@ -21,7 +27,7 @@ if n1 > n2:
 cnt = 0
 while n1 <= n2:
     if is_prime(n1):
-        print(f"{n1} ", end = '')
+        print(f"{n1} ", end='')
         cnt = cnt + 1
     if cnt == 20:
         cnt = 0
