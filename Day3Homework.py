@@ -5,9 +5,11 @@ snack = ["초콜릿", "치즈", "삼겹살", "양꼬치"]
 
 drink.append("사케")
 snack.append("광어회")
-
+drink.append("맥주")
+snack.append("치킨")
 
 def printchoice():
+    print('다음 술중에 고르세요')
     for i in range(0, len(drink)):
         print(f"{i + 1}) {drink[i]} ", end='')
     print(f"{len(drink) + 1}) 아무거나 {len(drink) + 2}) 종료 : ", end='')
