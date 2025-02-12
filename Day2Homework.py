@@ -13,6 +13,7 @@ def mypow(num) -> int:
             return i
     return 0
 
+
 def is_prime(num) -> bool:
     if num >= 2:
         i = 2
