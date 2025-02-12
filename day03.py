@@ -1,37 +1,23 @@
-sugang = dict(python="kim", cpp="sung", db="kang") #빨간거 key, 초록색은 value 원소가 3개인 dictionary
-# sugang2 = {'python' : 'kim', 'cpp' : 'sung', 'db' : 'kang'} #둘 다 써도 됨
 
-# sugang = dict(py thon="kim", c pp="sung", d b="kang") 이건 띄어쓰기가 안됨
-sugang2 = {'py thon' : 'kim', 'c pp' : 'sung', 'd b' : 'kang'} #이건 띄어쓰기가 됨
+drinks_foods = {"위스키": "초콜릿", "와인": "치즈", "소주": "삽겹살", "고량주": "양꼬치"}
 
-print(sugang)
+# drink = input(drinks_foods.keys())
+drinks_foods_keys = list(drinks_foods)
+print(drinks_foods_keys) # -> key들만 출력
 
-sugang['datastructure'] = 'kim'  # add dict의 원소 추가하는법
-print(sugang)
 
-sugang['datastructure'] = 'park'  # update
-print(sugang)
+while True:
+    menu = input(f'다음 술중에 고르세요.\n1) {drinks_foods_keys[0]}   2) {drinks_foods_keys[1]}   3) {drinks_foods_keys[2]}   4) {drinks_foods_keys[3]}   5) 종료 : ')
+    if menu == '1':
+        print(f'{drinks_foods_keys[0]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[0]]} 입니다')
+    elif menu == '2':
+        print(f'{drinks_foods_keys[1]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[1]]} 입니다')
+    elif menu == '3':
+        print(f'{drinks_foods_keys[2]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[2]]} 입니다')
+    elif menu == '4':
+        print(f'{drinks_foods_keys[3]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[3]]} 입니다')
+    elif menu == '5':
+        print(f'다음에 또 오세요')
+        break
 
-print(sugang['db']) #이것도 되고
-print(sugang.get('db')) #이것도 된다! 바로 위의 코드와 동일
-print(sugang.get('opensource')) # 여기에 해당하는 value가 있으면 리턴 아니면 None을 리턴
-print(sugang.get('opensource', 'not exist')) # 쉼표 뒤는 없을 때 리턴하는 문자열을 적는 곳
-
-for sub, professor in sugang.items():
-    print(f'{sub} 과목 담당교수는 {professor}입니다')
-
-for sub in sugang.items(): #하나만 적어놓으면 튜플로 출력
-    print(sub)
-
-#for k in sugang.keys():
-for k in sugang: #sugang 이라 적던가, sugang.keys() 로 적던가 동일하게 동작
-    print(k, end = ' ')
-print()
-
-for v in sugang.values():
-    print(v, end = ' ')
-
-print()
-
-for s in sugang.items():
-    print(s, end =' ')
+#key 들을 dict의 []에 넣으면 value를 출력
