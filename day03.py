@@ -1,27 +1,37 @@
-# squares = list()
-# squares.append(1*1)
-# squares.append(2*2)
-# squares.append(3*3)
-# squares.append(4*4)
-# squares.append(5*5)
-# print(squares)
-# Hard coding
+sugang = dict(python="kim", cpp="sung", db="kang") #빨간거 key, 초록색은 value 원소가 3개인 dictionary
+# sugang2 = {'python' : 'kim', 'cpp' : 'sung', 'db' : 'kang'} #둘 다 써도 됨
 
-squares = list()
-for i in range(1, 6, 1): #1부터 5까지 제곱을 출력
-    squares.append(i*i) #push 인가봐요 append는
-print(squares)
+# sugang = dict(py thon="kim", c pp="sung", d b="kang") 이건 띄어쓰기가 안됨
+sugang2 = {'py thon' : 'kim', 'c pp' : 'sung', 'd b' : 'kang'} #이건 띄어쓰기가 됨
 
-# # list comprehension
-# squares = [i*i for i in range(1, 6, 1)] # 위의 코드를 더 간단하게!!
-# print(squares)
+print(sugang)
 
-even_squares = [i*i for i in range(1, 6, 1) if i % 2 == 0]
-print(even_squares)
+sugang['datastructure'] = 'kim'  # add dict의 원소 추가하는법
+print(sugang)
 
-# 이거랑 동일한 코드
-# evensquares = list()
-# for i in range(1,6,1):
-#     if i % 2 == 0:
-#         evensquares.append(i*i)
-# print(evensquares)
+sugang['datastructure'] = 'park'  # update
+print(sugang)
+
+print(sugang['db']) #이것도 되고
+print(sugang.get('db')) #이것도 된다! 바로 위의 코드와 동일
+print(sugang.get('opensource')) # 여기에 해당하는 value가 있으면 리턴 아니면 None을 리턴
+print(sugang.get('opensource', 'not exist')) # 쉼표 뒤는 없을 때 리턴하는 문자열을 적는 곳
+
+for sub, professor in sugang.items():
+    print(f'{sub} 과목 담당교수는 {professor}입니다')
+
+for sub in sugang.items(): #하나만 적어놓으면 튜플로 출력
+    print(sub)
+
+#for k in sugang.keys():
+for k in sugang: #sugang 이라 적던가, sugang.keys() 로 적던가 동일하게 동작
+    print(k, end = ' ')
+print()
+
+for v in sugang.values():
+    print(v, end = ' ')
+
+print()
+
+for s in sugang.items():
+    print(s, end =' ')
