@@ -8,6 +8,7 @@ snack.append("광어회")
 drink.append("맥주")
 snack.append("치킨")
 
+
 def printchoice():
     print('다음 술중에 고르세요')
     for i in range(0, len(drink)):
@@ -15,15 +16,19 @@ def printchoice():
     print(f"{len(drink) + 1}) 아무거나 {len(drink) + 2}) 종료 : ", end='')
 
 
+def printmenu(menu):
+    print(f"{drink[menu - 1]}에 어울리는 안주는 {snack[menu - 1]} 입니다")
+
+
 while True:
     printchoice()
     try:
         menu = int(input())
         if menu >= 1 and menu <= len(drink):
-            print(f"{drink[menu - 1]}에 어울리는 안주는 {snack[menu - 1]} 입니다")
+            printmenu(menu)
         elif menu == len(drink) + 1:
             random_drink = random.randint(0, len(drink) - 1)
-            print(f'{drink[random_drink]}에 어울리는 안주는 {snack[random_drink]} 입니다')
+            printmenu(random_drink)
         elif menu == len(drink) + 2:
             print(f'다음에 또 오세요')
             break
