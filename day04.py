@@ -1,17 +1,19 @@
 import random
 
-#가격까지 나타내고 싶다면?
+# 가격까지 나타내고 싶다면?
 # d_s_p = {"위스키" : ['초콜릿', 50_000]}
 # print(d_s_p["위스키"][0])
 
-# price = [50000, 40000, 1600, 30000] 나라면 이렇게 할듯
+price = [50000, 40000, 1600, 30000]
 drink = ["위스키", "와인", "소주", "고량주"]
 snack = ["초콜릿", "치즈", "삼겹살", "양꼬치"]
 
 drink.append("사케")
 snack.append("광어회")
+price.append(50000)
 drink.append("맥주")
 snack.append("치킨")
+price.append(3000)
 
 
 def printchoice():
@@ -22,7 +24,7 @@ def printchoice():
 
 
 def printmenu(menu):
-    print(f"{drink[menu - 1]}에 어울리는 안주는 {snack[menu - 1]} 입니다")
+    print(f"{drink[menu - 1]}에 어울리는 안주는 {snack[menu - 1]}이고 가격은 {price[menu - 1]}원 입니다")
 
 
 while True:
