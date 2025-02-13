@@ -12,8 +12,11 @@ def log_decorator(func):
 
 
 @log_decorator
-def greet(name, greeting="안녕하세요", age=0):
-    return f"{greeting}, {name}"
+def greet(name, greeting="안녕하세요", age=None):
+    return f"{greeting}, {name} (age : {age})" if age else f"{greeting}, {name}"
+
+#if age 저 구문은 age를 받지 못했으면 greeting과 name만 출력한다.
+#age의 default값이 0이니까
 
 
 print(greet("인하"))
