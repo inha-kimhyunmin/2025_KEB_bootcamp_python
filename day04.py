@@ -1,42 +1,50 @@
-# SOLID
-# Open Closed Principle : 개방 폐쇄 원칙(확장에는 열려 있고 수정에는 닫혀있는 원칙)
-import time
-
-
-def factorial(n) -> int:
-    """
-    n!을 구하는 함수
-    :param n: int
-    :return: int
-    """
-    if n > 1:
-        return n * factorial(n - 1)
-    else:
-        return 1
-
-
-def time_decorator(func):
-    def wrapper(*arg):
-        s = time.time()
-        r = func(*arg)
-        e = time.time()
-        print(f"걸린 시간 : {e - s}s")
+# decorator
+def description(f):  # closure
+    def inner(*args):
+        print(f.__name__)
+        print(f.__doc__)
+        r = f(*args)
         return r
 
-    return wrapper
+    return inner
 
 
-@time_decorator
-def factorial_repetition(n) -> int:
+def squares(n):
+    """
+    제곱 함수
+    """
+    return n * n
+
+@description
+def power(b, e):
+    """
+    거듭제곱 함수
+    """
     result = 1
-    for i in range(2, n + 1):
-        result = result * i
+    for _ in range(e):
+        result = result * b
     return result
 
 
-number = int(input())
-s = time.time()
-print(f"{number}! = {factorial_repetition(number)}")
-e = time.time()
-# print(f"걸린 시간 : {e - s}")  # 40us 걸림
-print(factorial(5))
+f1 = description(squares)
+print(f1(9))
+print(power(2, 10))
+# f2 = description(power)
+# print(f2(2, 10))
+
+# print(squares(7))
+# print(squares.__doc__)
+
+# def my_range(first=0, last=5, step=1):
+#     number = first
+#     while number < last:
+#         yield number
+#         number += step
+#
+# r = my_range()
+# print(r, type(r))
+#
+# for x in r:
+#     print(x)
+# for x in r:
+#     print(x)
