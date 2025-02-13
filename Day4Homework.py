@@ -1,6 +1,7 @@
 # v3.6) 2중 데코레이터 적용, 성능측정 데코레이터, 디스크립션 테코레이터를 팩토리얼 함수에 적용시키시오
 import time
 
+
 def description(f):  # closure
     def inner(*args):
         print(f.__name__)
@@ -9,17 +10,6 @@ def description(f):  # closure
         return r
 
     return inner
-
-def factorial(n) -> int:
-    """
-    n!을 구하는 함수
-    :param n: int
-    :return: int
-    """
-    if n > 1:
-        return n * factorial(n - 1)
-    else:
-        return 1
 
 
 def time_decorator(func):
@@ -32,8 +22,9 @@ def time_decorator(func):
 
     return wrapper
 
-@time_decorator
+
 @description
+@time_decorator
 def factorial_repetition(n) -> int:
     """
     n!을 구하는 함수
@@ -44,6 +35,18 @@ def factorial_repetition(n) -> int:
     for i in range(2, n + 1):
         result = result * i
     return result
+
+
+def factorial(n) -> int:
+    """
+    n!을 구하는 함수
+    :param n: int
+    :return: int
+    """
+    if n > 1:
+        return n * factorial(n - 1)
+    else:
+        return 1
 
 
 number = int(input())
