@@ -1,13 +1,23 @@
-def squares(n):
-    return n * n
+# SOLID
+# Open Closed Principle : 개방 폐쇄 원칙(확장에는 열려 있고 수정에는 닫혀있는 원칙)
 
-even_numbers = [i for i in range(51) if i % 2 == 0] #list comprehension
-print(even_numbers)
-# print(tuple(map(squares, even_numbers)))
+def factorial(n) -> int:
+    """
+    n!을 구하는 함수
+    :param n: int
+    :return: int
+    """
+    if n > 1:
+        return n * factorial(n - 1)
+    else:
+        return 1
 
-print(tuple(map(lambda x: x**2, even_numbers)))
-z = lambda x: pow(x, 2)
-print(tuple(map(z, even_numbers)))
+def factorial_repetition(n) ->int:
+    result = 1
+    for i in range(2, n+1):
+        result = result * i
+    return result
 
-ns = [-9, 7, "-11", "-988"]
-print(tuple(map(abs,(map(int,ns)))))
+number = int(input())
+print(f"{number}! = {factorial_repetition(number)}")
+print(factorial(5))
