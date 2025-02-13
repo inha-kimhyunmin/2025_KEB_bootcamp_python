@@ -7,13 +7,18 @@ import random
 price = [50000, 40000, 1600, 30000]
 drink = ["위스키", "와인", "소주", "고량주"]
 snack = ["초콜릿", "치즈", "삼겹살", "양꼬치"]
+amounts = list()
+for i in range(len(drink)):
+    amounts.append(0)
 
 drink.append("사케")
 snack.append("광어회")
 price.append(50000)
+amounts.append(0)
 drink.append("맥주")
 snack.append("치킨")
 price.append(3000)
+amounts.append(0)
 
 
 def printchoice():
@@ -25,6 +30,13 @@ def printchoice():
 
 def printmenu(menu):
     print(f"{drink[menu - 1]}에 어울리는 안주는 {snack[menu - 1]}이고 가격은 {price[menu - 1]}원 입니다")
+
+
+def print_menu_total_price(n):
+    global total_price
+    print(f"{drink[n]}에 어울리는 안주는 {snack[n]} 입니다")
+    print(f"가격은 {price[n]} 입니다")
+    total_price = total_price + price
 
 
 while True:
