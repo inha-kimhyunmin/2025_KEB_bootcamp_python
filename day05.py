@@ -1,55 +1,49 @@
-class Pokemon:
-    pass
+class FlyingMixin:
+    def fly(self):
+        return f"{self.name}이(가) 하늘을 훨훨 날아갑니다~"
 
+class SwimmingMixin:
+    def swim(self):
+        return f"{self.name}이(가) 수영을 합니다."
 
-# pikachu = Pokemon()
-# squirtle = Pokemon()
-# pikachu.name = "피카츄"
-# pikachu.nemesis = squirtle
-# print(pikachu.name)
-# #print(pikachu.nemesis.name)
-# pikachu.nemesis.name = "꼬부기"  #squirtle.name = "꼬부기"
-# print(pikachu.nemesis.name)
-# print(squirtle.name)
-
-
-# class Pokemon():
 class Pokemon:
     def __init__(self, name):
-        self.name = name
-        print(f"{name} 포켓몬스터 생성")
+        self.__name = name
 
-    def attack(self, target):
-        print(f"{self.name}이(가) {target.name}을(를) 공격!")
+    def attack(self):
+        print("공격~")
 
+    @property
+    def name(self):
+        return self.__name
 
-class Pikachu(Pokemon):
-    def __init__(self, name, type):
-        super().__init__(name)
-        self.type = type
+    @name.setter
+    def name(self, new_name):
+        self.__name = new_name
 
-    def attack(self, target):
-        print(f"{self.name}이(가) {target.name}을(를) {self.type} 공격!")
-
-    def electric_info(self):
-        print("전기 계열의 공격을 합니다")
+    #name = property(get_name, set_name)
 
 
-class Squirtle(Pokemon):
+class Charizard(Pokemon, FlyingMixin):
     pass
 
-
-class Agumon:
+class Gyarados(Pokemon, SwimmingMixin):
     pass
 
-p1 = Pikachu("피카츄", "전기")
-p2 = Squirtle("꼬부기")
-p3 = Pokemon("아무개")
-p1.electric_info()
-# p3.electric_info() -> 에러!
-p1.attack(p2)
-p2.attack(p1)
+g1 = Gyarados("갸라도스")
+c1 = Charizard("리자몽")
 
-print(p1.name, p1.type)
-print(issubclass(Pikachu, Pokemon))
-print(issubclass(Agumon, Pokemon))
+print(c1.fly())
+print(g1.swim())
+
+# print(g1.get_name())
+# g1.set_name("잉어킹")
+# print(g1.get_name())
+
+# property 3rd
+# print(g1.name)
+#print(g1.__name)  # direct access X
+#g1._Pokemon__name = "잉어킹"
+# g1.name = "잉어킹"
+#g1.__name = "잉어킹"
+# print(g1._Pokemon__name)  # 사실 상 private 개념은 없는 걸로
